@@ -1,4 +1,7 @@
-import React from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,14 +25,19 @@ ChartJS.register(
 );
 
 export default function lineChart({ datas, label }) {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-device-width: 900px)",
+  });
   const labels = datas?.data?.datetime.concat(datas?.predict?.datetime);
   const pt = datas?.data?.pt;
 
-  var predict = [];
-  for (var i = 0; i < pt.length; ++i) {
-    predict.push(NaN);
-  }
-  predict = predict.concat(datas?.predict?.pt);
+  const predict = datas?.data?.pt.concat(datas?.predict?.pt);
+
+  // var predict = [];
+  // for (var i = 0; i < pt.length - 1; ++i) {
+  //   predict.push(NaN);
+  // }
+  // predict = predict.concat([pt[pt.length - 1], datas?.predict?.pt]);
   const data = {
     labels,
     datasets: [
@@ -38,14 +46,16 @@ export default function lineChart({ datas, label }) {
         data: pt,
         borderColor: "rgb(22 78 99)",
         backgroundColor: "rgba(22, 78, 99, 0.5)",
-        tension: 0.4,
+        tension: 0.2,
+        pointRadius: 2,
       },
       {
         label: `Predict ${label.toLowerCase()} later`,
         data: predict,
-        borderColor: "rgb(136 19 55)",
-        backgroundColor: "rgba(136, 19, 55, 0.5)",
-        pointRadius: 10,
+        borderColor: "rgb(251, 180, 84)",
+        backgroundColor: "rgba(251, 180, 84, .5)",
+        pointRadius: 2,
+        tension: 0.2,
       },
     ],
   };
@@ -53,12 +63,12 @@ export default function lineChart({ datas, label }) {
     responsive: true,
     plugins: {
       legend: {
-        position: "top",
+        position: "bottom",
       },
     },
     scales: {
       x: {
-        display: true,
+        display: isDesktopOrLaptop ? true : false,
         grid: {
           display: false,
         },
@@ -79,5 +89,7 @@ export default function lineChart({ datas, label }) {
       },
     },
   };
-  return <Line className="md:max-h-[400px] " options={options} data={data} />;
+  return (
+    <Line className=" md:max-h-[400px] w-full" options={options} data={data} />
+  );
 }

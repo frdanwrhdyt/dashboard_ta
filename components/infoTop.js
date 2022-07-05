@@ -57,12 +57,12 @@ export default function infoTop({ datas }) {
   return (
     <>
       {costPopover()}
-      <div className="grid grid-cols-3 gap-20 pb-10 h-fit w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-20 pb-5 h-fit w-full">
         <div className="w-full min-h-[100px] rounded-md bg-white shadow-md p-5 flex flex-row">
           <div className="text-sm md:text-md font-semibold">
             Estimated cost for the next hour
           </div>
-          <div className="h-full flex w-1/3 items-end">
+          <div className="h-full flex w-1/2 md:w-1/3 items-end">
             <div className="flex ml-auto">
               <div className="w-full text-end ">
                 <span className="font-semibold text-sm md:text-lg">IDR</span>{" "}
@@ -75,7 +75,7 @@ export default function infoTop({ datas }) {
           <div className="text-sm md:text-md font-semibold ">
             Estimated cost for the next day
           </div>
-          <div className="h-full flex w-1/3 items-end">
+          <div className="h-full flex w-1/2 md:w-1/3 items-end">
             <div className="flex ml-auto">
               <div className="w-full text-end ">
                 <span className="font-semibold text-sm md:text-lg">IDR</span>{" "}
@@ -88,7 +88,7 @@ export default function infoTop({ datas }) {
           <div className="text-sm md:text-md font-semibold">
             Estimated cost for the next week
           </div>
-          <div className="h-full flex w-1/3 items-end">
+          <div className="h-full flex w-1/2 md:w-1/3 items-end">
             <div className="flex ml-auto">
               <div className="w-full text-end ">
                 <span className="font-semibold text-sm md:text-lg">IDR</span>{" "}

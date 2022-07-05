@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <title>Tugas Akhir Farid Anwar Hidayat</title>
       </Head>
       <Component {...pageProps} />
     </>
