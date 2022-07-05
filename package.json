@@ -1,12 +1,14 @@
 {
   "name": "fe",
   "version": "0.1.0",
+  "homepage":"http://wwgiftshop.com",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
