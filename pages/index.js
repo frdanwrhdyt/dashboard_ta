@@ -4,6 +4,7 @@ import InfoChart from "../components/infoChart";
 import InfoColumn from "../components/infoBottom";
 import InfoTop from "../components/infoTop";
 
+import react, { useState, useEffect } from "react";
 import { ChipIcon } from "@heroicons/react/outline";
 
 export async function getStaticProps() {
@@ -30,7 +31,51 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ nowData, data }) {
+export default function Home({ data, nowData }) {
+  // const [hour, setHour] = useState();
+  // const [day, setDay] = useState();
+  // const [week, setWeek] = useState();
+  // const [now, setNow] = useState();
+
+  // useEffect(() => {
+  //   fetch("http://103.183.74.167:8000/predict/hour")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((res) => {
+  //       setHour(res);
+  //     });
+  //   fetch("http://103.183.74.167:8000/predict/day")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((res) => {
+  //       setDay(res);
+  //     });
+  //   fetch("http://103.183.74.167:8000/predict/week")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((res) => {
+  //       setWeek(res);
+  //     });
+
+  //   fetch("http://103.183.74.167:8000/data")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((res) => {
+  //       setNow(res);
+  //     });
+  //   setInterval(() => {}, 300000);
+  // }, []);
+  // const data = {
+  //   hour,
+  //   day,
+  //   week,
+  // };
+  // const nowData = now;
+  // console.log(now);
   return (
     <>
       <div className="flex w-screen">
@@ -93,3 +138,25 @@ export default function Home({ nowData, data }) {
     </>
   );
 }
+// export async function getStaticProps() {
+//   const res1 = await fetch("http://103.183.74.167:8000/data");
+//   const res2 = await fetch("http://103.183.74.167:8000/predict/hour");
+//   const res3 = await fetch("http://103.183.74.167:8000/predict/day");
+//   const res4 = await fetch("http://103.183.74.167:8000/predict/week");
+//   const nowData = await res1.json();
+//   const hour = await res2.json();
+//   const day = await res3.json();
+//   const week = await res4.json();
+
+//   const data = {
+//     hour,
+//     day,
+//     week,
+//   };
+//   return {
+//     props: {
+//       nowData,
+//       data,
+//     },
+//   };
+// }
