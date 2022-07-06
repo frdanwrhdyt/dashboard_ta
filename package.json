@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start": "NODE_ENV=production node server.js"
+
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
